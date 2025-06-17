@@ -21,26 +21,31 @@ export default function LandingPage() {
       </div>
 
       <section className="vibe-hero">
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="vibe-hero-sub"
-        >
-          Choose a mood and step inside—<br />
-          listen, chat, and find your people in a space that truly gets you.
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="vibe-hero-title"
-        >
-          Feel it. Share it. <br /> Connect now.
-        </motion.h1>
-        <div className="vibe-hero-buttons">
-          <button className="hero-btn">Join now</button>
-          <button className="hero-btn ghost">Explore rooms</button>
+        <div className="vibe-hero-left">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="vibe-hero-sub"
+          >
+            Choose a mood and step inside—<br />
+            listen, chat, and find your people in a space that truly gets you.
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="vibe-hero-title"
+          >
+            Feel it. Share it. <br /> Connect now.
+          </motion.h1>
+          <div className="vibe-hero-buttons">
+            <button className="hero-btn">Join now</button>
+            <button className="hero-btn ghost">Explore rooms</button>
+          </div>
+        </div>
+        <div className="vibe-hero-right">
+          <div className="hero-image-placeholder" />
         </div>
       </section>
 
@@ -68,14 +73,31 @@ export default function LandingPage() {
           <h2>Your mood, your room, your people</h2>
           <p>
             Step into a space that feels just right for you. Explore rooms that match your mood,
-            connect with others who understand, and let music and conversation lift you up—
-            no pressure, just good vibes.
+            connect with others who understand, and let music and conversation lift you up—no pressure, just good vibes.
           </p>
         </div>
         <div className="about-right">
           <img src="/images/hero.jpg" alt="Hero Art" />
         </div>
       </section>
+      <footer className="vibe-footer">
+      <div className="footer-content">
+        <div className="footer-left">
+          <h3>Vibe Room</h3>
+          <p>Find your vibe, feel the connection.</p>
+        </div>
+        <div className="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        &copy; {new Date().getFullYear()} Vibe Room. All rights reserved.
+      </div>
+    </footer>
+
     </div>
+    
   );
 }

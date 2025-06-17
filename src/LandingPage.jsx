@@ -1,90 +1,81 @@
 import "./LandingPage.css";
 import { motion } from "framer-motion";
 
+const moods = [
+  { name: "Angry", desc: "Let it out, together", img: "/images/angry.jpg" },
+  { name: "Chill", desc: "Settle into mellow vibes", img: "/images/chill.jpg" },
+  { name: "Inspired", desc: "Ignite ideas and connect", img: "/images/inspired.jpg" },
+  { name: "Reflective", desc: "Pause and share your thoughts", img: "/images/reflective.jpg" },
+];
+
 export default function LandingPage() {
   return (
     <div className="vibe-root">
       <div className="vibe-topbar">
         <div className="vibe-logo">Vibe Room</div>
         <nav className="vibe-nav">
-          <a href="#how">How</a>
-          <a href="#moods">Moods</a>
-          <a href="#join">Join</a>
+          <a href="#">Rooms</a>
+          <a href="#">About</a>
+          <a href="#">Login</a>
         </nav>
       </div>
 
       <section className="vibe-hero">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          Step Into Your Mood
-        </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
+          className="vibe-hero-sub"
         >
-          A space to vibe, feel, and connect — together.
+          Choose a mood and step inside—<br />
+          listen, chat, and find your people in a space that truly gets you.
         </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="vibe-hero-title"
+        >
+          Feel it. Share it. <br /> Connect now.
+        </motion.h1>
+        <div className="vibe-hero-buttons">
+          <button className="hero-btn">Join now</button>
+          <button className="hero-btn ghost">Explore rooms</button>
+        </div>
       </section>
 
-      <motion.section
-        id="how"
-        className="vibe-section"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        <h2>How It Works</h2>
-        <div className="vibe-steps">
-          <div><span>🎧</span>Pick a Mood</div>
-          <div><span>🎶</span>Listen Together</div>
-          <div><span>💬</span>Chat & Chill</div>
+      <section className="vibe-moods">
+        {moods.map(({ name, desc, img }) => (
+          <motion.div
+            key={name}
+            className="vibe-rotate-card"
+            style={{ backgroundImage: `url(${img})` }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="overlay" />
+            <div className="text-content">
+              <h3>{name}</h3>
+              <p>{desc}</p>
+              <button>Join Room</button>
+            </div>
+          </motion.div>
+        ))}
+      </section>
+
+      <section className="vibe-about">
+        <div className="about-left">
+          <h2>Your mood, your room, your people</h2>
+          <p>
+            Step into a space that feels just right for you. Explore rooms that match your mood,
+            connect with others who understand, and let music and conversation lift you up—
+            no pressure, just good vibes.
+          </p>
         </div>
-      </motion.section>
-
-      <motion.section
-  id="moods"
-  className="vibe-section"
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7 }}
->
-  <h2>Mood Rooms</h2>
-  <div className="vibe-rotate-container">
-    {["Chill", "Sad", "Energetic", "Focus", "Romantic", "Lo-fi"].map((mood) => (
-      <motion.div
-        key={mood}
-        className="vibe-rotate-card"
-        whileHover={{ rotateY: 15, rotateX: -10, scale: 1.05 }}
-        transition={{ type: "spring", stiffness: 300, damping: 15 }}
-      >
-        <h3>{mood}</h3>
-        <p>Feel the {mood.toLowerCase()} vibe</p>
-        <button>Join Room</button>
-      </motion.div>
-    ))}
-  </div>
-</motion.section>
-
-
-      <motion.section
-        id="join"
-        className="vibe-cta"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        <h2>Join the Vibe</h2>
-        <p>Connect with your emotions, people & music. Anytime.</p>
-        <button>Get Started</button>
-      </motion.section>
-
-      <footer className="vibe-footer">
-        © {new Date().getFullYear()} Vibe Room
-      </footer>
+        <div className="about-right">
+          <img src="/images/hero.jpg" alt="Hero Art" />
+        </div>
+      </section>
     </div>
   );
 }

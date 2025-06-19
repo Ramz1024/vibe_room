@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './LandingPage';
 import Login from './Login';
-import Signup from './signup';
+import Signup from './Signup';
 import HappyRoom from './HappyRoom';
 import AngryRoom from './AngryRoom';
 import SleepingRoom from './SleepingRoom';

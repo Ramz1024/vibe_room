@@ -2,6 +2,9 @@ import React from 'react'
 
 export default function signup() {
   return (
-    <div>signup</div>
+    <div>
+      <h1>This is signup page</h1>
+
+    </div>
   )
 }

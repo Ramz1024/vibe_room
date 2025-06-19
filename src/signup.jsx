@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
+import './signup.css';
 
-export default function signup() {
+export default function Signup() {
   return (
-    <div>
-      <h1>This is signup page</h1>
-
+    <div className="signup-container">
+      <h1>This is Signup Page</h1>
     </div>
-  )
+  );
 }

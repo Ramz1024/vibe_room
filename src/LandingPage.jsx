@@ -1,11 +1,16 @@
 import "./LandingPage.css";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const moods = [
-  { name: "Angry", desc: "Let it out, together", img: "/images/angry.jpg" },
-  { name: "Chill", desc: "Settle into mellow vibes", img: "/images/chill.jpg" },
-  { name: "Inspired", desc: "Ignite ideas and connect", img: "/images/inspired.jpg" },
-  { name: "Reflective", desc: "Pause and share your thoughts", img: "/images/reflective.jpg" },
+  { name: "Happy", desc: "Spread joy and positivity", img: "/images/happy.jpg", link: "/happy" },
+  { name: "Angry", desc: "Let it out, together", img: "/images/angry.jpg", link: "/angry" },
+  { name: "Sleeping", desc: "Relax and unwind", img: "/images/sleeping.jpg", link: "/sleeping" },
+  { name: "Chill", desc: "Settle into mellow vibes", img: "/images/chill.jpg", link: "/chill" },
+  { name: "Sad", desc: "It's okay to feel down", img: "/images/sad.jpg", link: "/sad" },
+  { name: "Studying", desc: "Stay productive together", img: "/images/studying.jpg", link: "/studying" },
+  { name: "Party", desc: "Let’s have some fun!", img: "/images/party.jpg", link: "/party" },
+  { name: "Melancholy", desc: "Quiet moments for thought", img: "/images/melancholy.jpg", link: "/melancholy" },
 ];
 
 export default function LandingPage() {
@@ -14,9 +19,9 @@ export default function LandingPage() {
       <div className="vibe-topbar">
         <div className="vibe-logo">Vibe Room</div>
         <nav className="vibe-nav">
-          <a href="#">Rooms</a>
-          <a href="#">About</a>
-          <a href="#">Login</a>
+          <Link to="/">Home</Link>
+          <Link to="/happy">Rooms</Link>
+          <Link to="/login">Login</Link> {/* Login remains as is */}
         </nav>
       </div>
 
@@ -40,8 +45,8 @@ export default function LandingPage() {
             Feel it. Share it. <br /> Connect now.
           </motion.h1>
           <div className="vibe-hero-buttons">
-            <button className="hero-btn">Join now</button>
-            <button className="hero-btn ghost">Explore rooms</button>
+            <Link to="/signup"><button className="hero-btn">Join now</button></Link> 
+            <Link to="/happy"><button className="hero-btn ghost">Explore rooms</button></Link>
           </div>
         </div>
         <div className="vibe-hero-right">
@@ -50,7 +55,7 @@ export default function LandingPage() {
       </section>
 
       <section className="vibe-moods">
-        {moods.map(({ name, desc, img }) => (
+        {moods.map(({ name, desc, img, link }) => (
           <motion.div
             key={name}
             className="vibe-rotate-card"
@@ -62,7 +67,9 @@ export default function LandingPage() {
             <div className="text-content">
               <h3>{name}</h3>
               <p>{desc}</p>
-              <button>Join Room</button>
+              <Link to={link}>
+                <button>Join Room</button>
+              </Link>
             </div>
           </motion.div>
         ))}
@@ -80,24 +87,23 @@ export default function LandingPage() {
           <img src="/images/hero.jpg" alt="Hero Art" />
         </div>
       </section>
-      <footer className="vibe-footer">
-      <div className="footer-content">
-        <div className="footer-left">
-          <h3>Vibe Room</h3>
-          <p>Find your vibe, feel the connection.</p>
-        </div>
-        <div className="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
-        </div>
-      </div>
-      <div className="footer-bottom">
-        &copy; {new Date().getFullYear()} Vibe Room. All rights reserved.
-      </div>
-    </footer>
 
+      <footer className="vibe-footer">
+        <div className="footer-content">
+          <div className="footer-left">
+            <h3>Vibe Room</h3>
+            <p>Find your vibe, feel the connection.</p>
+          </div>
+          <div className="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          &copy; {new Date().getFullYear()} Vibe Room. All rights reserved.
+        </div>
+      </footer>
     </div>
-    
   );
 }

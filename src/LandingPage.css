@@ -120,23 +120,23 @@ body {
 }
 
 .vibe-moods {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 4rem 2rem;
-  background-color: #1c1c22;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
 }
 
 .vibe-rotate-card {
   position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  height: 300px;
+  width: 280px;
+  height: 380px;
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: flex-end;
-  transition: transform 0.3s ease;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
 }
 
 .vibe-rotate-card .overlay {
@@ -145,35 +145,45 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent 60%);
+  z-index: 1;
 }
 
 .vibe-rotate-card .text-content {
-  position: relative;
-  padding: 1.5rem;
+  position: absolute;
+  bottom: 25px; /* 👈 Pushes the text + button down */
+  left: 20px;
+  right: 20px;
   z-index: 2;
-  color: white;
+  color: #fff;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
 }
 
-.vibe-rotate-card h3 {
+.vibe-rotate-card .text-content h3 {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
-.vibe-rotate-card p {
+.vibe-rotate-card .text-content p {
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
-.vibe-rotate-card button {
-  background: #ffffff;
-  color: #5e4a4a;
+.vibe-rotate-card .text-content button {
+  background-color: rgba(255, 255, 255, 0.9);
   border: none;
-  padding: 0.6rem 1.2rem;
+  padding: 8px 16px;
   border-radius: 20px;
   font-weight: bold;
+  color: #000;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.vibe-rotate-card .text-content button:hover {
+  background-color: #fff;
+}
+
 
 .vibe-about {
   display: flex;

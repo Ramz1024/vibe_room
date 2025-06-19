@@ -1,11 +1,14 @@
 import "./LandingPage.css";
 import { motion } from "framer-motion";
 
-const moods = [
-  { name: "Angry", desc: "Let it out, together", img: "/images/angry.jpg" },
-  { name: "Chill", desc: "Settle into mellow vibes", img: "/images/chill.jpg" },
-  { name: "Inspired", desc: "Ignite ideas and connect", img: "/images/inspired.jpg" },
-  { name: "Reflective", desc: "Pause and share your thoughts", img: "/images/reflective.jpg" },
+  const moods = [
+  { name: "Happy", desc: "Soak in the sunshine and celebrate the good vibes", img: "/images/happy.jpeg" },
+  { name: "Angry", desc: "Let it out safely and feel heard, not judged", img: "/images/angry.jpeg" },
+  { name: "Sleeping", desc: "Unwind into serenity and drift into stillness", img: "/images/sleeping.jpeg" },
+  { name: "Chill", desc: "Settle into mellow vibes", img: "images/chill.jpeg" },
+  { name: "Sad", desc: "Release the weight and find quiet comfort in company", img: "/images/sad.jpeg" },
+  { name: "Studying", desc: "Stay focused and flow with calm, distraction-free beats", img: "/images/studying.jpeg" },
+  { name: "Party", desc: "Turn up the volume and ride the rhythm together", img: "/images/party.jpeg" }
 ];
 
 export default function LandingPage() {
@@ -48,23 +51,22 @@ export default function LandingPage() {
           <div className="hero-image-placeholder" />
         </div>
       </section>
-
-      <section className="vibe-moods">
-        {moods.map(({ name, desc, img }) => (
-          <motion.div
-            key={name}
-            className="vibe-rotate-card"
-            style={{ backgroundImage: `url(${img})` }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="overlay" />
-            <div className="text-content">
-              <h3>{name}</h3>
-              <p>{desc}</p>
-              <button>Join Room</button>
-            </div>
-          </motion.div>
+<section className="vibe-moods">
+  {moods.map(({ name, desc, img }) => (
+    <motion.div
+      key={name}
+      className="vibe-rotate-card"
+      style={{ backgroundImage: `url(${img})` }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="overlay" />
+      <div className="text-content">
+        <h3>{name}</h3>
+        <p>{desc}</p>
+        <button>Join Room</button>
+      </div>
+    </motion.div>
         ))}
       </section>
 
